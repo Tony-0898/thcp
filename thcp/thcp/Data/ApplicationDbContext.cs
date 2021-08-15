@@ -20,5 +20,7 @@ namespace thcp.Data
 
         public DbSet<thcp.Models.Employee> Employee { get; set; }
 
+        public DbSet<thcp.Models.Proyecto> Proyectos { get; set; }
+
     }
 }

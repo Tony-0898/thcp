@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using thcp.Data;
 
 namespace thcp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210814211713_Data")]
+    partial class Data
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -290,30 +292,6 @@ namespace thcp.Migrations
                     b.HasIndex("DepartmetId");
 
                     b.ToTable("Position");
-                });
-
-            modelBuilder.Entity("thcp.Models.Proyecto", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("DepartmentId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DepartmentName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DepartmentResidencia")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DepartmentVacante")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Proyectos");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

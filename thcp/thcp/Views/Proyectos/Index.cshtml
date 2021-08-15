@@ -1,0 +1,33 @@
+﻿@model IEnumerable<thcp.Models.Proyecto>
+
+@{
+    ViewData["Title"] = "Proyectos";
+}
+<h1>Aplicar Vacante</h1>
+</hr>
+<p>
+    <a asp-action="Create" class="btn btn-success">Nuevo</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DepartmentName)
+                </th>
+                <th></th>
+            </tr>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@Html.DisplayNameFor(modelItem => item.DepartmentName) </td>
+                <td>
+  
+                </td>
+            </tr>
+    }
+</tbody>
+</thead>
+   </table>
+</p>
