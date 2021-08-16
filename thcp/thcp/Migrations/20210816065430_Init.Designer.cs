@@ -10,8 +10,8 @@ using thcp.Data;
 namespace thcp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210815024251_AgregarProyectos")]
-    partial class AgregarProyectos
+    [Migration("20210816065430_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -228,10 +228,18 @@ namespace thcp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("DepartmentDetalle")
+                        .IsRequired()
+                        .HasMaxLength(70)
+                        .HasColumnType("nvarchar(70)");
+
                     b.Property<string>("DepartmentName")
                         .IsRequired()
                         .HasMaxLength(70)
                         .HasColumnType("nvarchar(70)");
+
+                    b.Property<int>("DepartmentNumero")
+                        .HasColumnType("int");
 
                     b.HasKey("DepartmetId");
 
