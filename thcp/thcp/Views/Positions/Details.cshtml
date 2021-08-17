@@ -1,24 +1,84 @@
 ﻿@model thcp.Models.Position
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles";
 }
 
-<h1>Details</h1>
+<h1>Detalles vacante</h1>
 
 <div>
     <h4>Position</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Description)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DescriptionDepartamento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionDepartamento)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DescriptionDetalles)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionDetalles)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DescriptionTipoContrato)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionTipoContrato)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DescriptionBeneficios)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionBeneficios)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DescriptionJornada)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionJornada)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DescriptionSalario)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionSalario)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DescriptionPerfil)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionPerfil)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DescriptionExperiencia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionExperiencia)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DescriptionZona)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionZona)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DescriptionContacto)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionContacto)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.PositionId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" class="btn btn-success" asp-route-id="@Model.PositionId">Modificar</a> |
+    <a asp-action="Index" class="btn btn-warning" >Retornar</a>
 </div>
