@@ -1,12 +1,12 @@
 ﻿@model thcp.Models.Position
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar";
 }
 
-<h1>Edit</h1>
+<h1>Editar vacante</h1>
 
-<h4>Position</h4>
+<h4> Actuales </h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -16,6 +16,36 @@
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
                 <input asp-for="Description" class="form-control" />
+                <label asp-for="DescriptionDepartamento" class="control-label"></label>
+                <input asp-for="DescriptionDepartamento" class="form-control" />
+                <label asp-for="DescriptionDetalles" class="control-label"></label>
+                <input asp-for="DescriptionDetalles" class="form-control" />
+                <label asp-for="DescriptionTipoContrato" class="control-label"></label>
+                <input asp-for="DescriptionTipoContrato" class="form-control" />
+                <label asp-for="DescriptionBeneficios" class="control-label"></label>
+                <input asp-for="DescriptionBeneficios" class="form-control" />
+                <label asp-for="DescriptionJornada" class="control-label"></label>
+                <input asp-for="DescriptionJornada" class="form-control" />
+                <label asp-for="DescriptionSalario" class="control-label"></label>
+                <input asp-for="DescriptionSalario" class="form-control" />
+                <label asp-for="DescriptionPerfil" class="control-label"></label>
+                <input asp-for="DescriptionPerfil" class="form-control" />
+                <label asp-for="DescriptionExperiencia" class="control-label"></label>
+                <input asp-for="DescriptionExperiencia" class="form-control" />
+                <label asp-for="DescriptionZona" class="control-label"></label>
+                <input asp-for="DescriptionZona" class="form-control" />
+                <label asp-for="DescriptionContacto" class="control-label"></label>
+                <input asp-for="DescriptionContacto" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+                <span asp-validation-for="DescriptionZona" class="text-danger"></span>
+                <span asp-validation-for="DescriptionExperiencia" class="text-danger"></span>
+                <span asp-validation-for="DescriptionPerfil" class="text-danger"></span>
+                <span asp-validation-for="DescriptionSalario" class="text-danger"></span>
+                <span asp-validation-for="DescriptionJornada" class="text-danger"></span>
+                <span asp-validation-for="DescriptionBeneficios" class="text-danger"></span>
+                <span asp-validation-for="DescriptionTipoContrato" class="text-danger"></span>
+                <span asp-validation-for="DescriptionDetalles" class="text-danger"></span>
+                <span asp-validation-for="DescriptionDepartamento" class="text-danger"></span>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -26,7 +56,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-success" >Retornar</a>
 </div>
 
 @section Scripts {

@@ -1,25 +1,85 @@
 ﻿@model thcp.Models.Position
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Borrar";
 }
 
-<h1>Delete</h1>
+<h1 class="text-success" >Borrar</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Esta seguro que desea Elimar este registro?</h3>
 <div>
     <h4>Position</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Description)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DescriptionDepartamento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionDepartamento)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DescriptionDetalles)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionDetalles)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DescriptionTipoContrato)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionTipoContrato)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DescriptionBeneficios)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionBeneficios)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DescriptionJornada)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionJornada)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DescriptionSalario)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionSalario)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DescriptionPerfil)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionPerfil)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DescriptionExperiencia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionExperiencia)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DescriptionZona)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionZona)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DescriptionContacto)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DescriptionContacto)
         </dd>
     </dl>
     
-    <form asp-action="Delete">
+    <form asp-action="Delete" class="btn btn-danger">
         <input type="hidden" asp-for="PositionId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>

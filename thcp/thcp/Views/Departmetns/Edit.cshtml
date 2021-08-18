@@ -1,16 +1,16 @@
 ﻿@model thcp.Models.Department
 
 @{
-    ViewData["Title"] = "Editar departamento";
+    ViewData["Title"] = "Editar Informacion";
 }
 
-<h2>Editar</h2>
+<h2 class="nav-link text-success" ><i class="fas fa-edit"></i>Editar Informacion</h2>
 
 <hr />
 
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Editar Informacion">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="DepartmetId"  />
             <div class="form-group">
@@ -20,6 +20,33 @@
                 <input asp-for="DepartmentNumero" class="form-control" />
                 <label asp-for="DepartmentDetalle" class="control-label">Detalles del puesto </label>
                 <input asp-for="DepartmentDetalle" class="form-control" />
+                <label asp-for="DepartmentSexo" class="control-label"></label>
+                <input asp-for="DepartmentSexo" class="form-control" />
+                <label asp-for="DepartmentTelefono" class="control-label"></label>
+                <input asp-for="DepartmentTelefono" class="form-control" />
+                <label asp-for="DepartmentEdad" class="control-label"></label>
+                <input asp-for="DepartmentEdad" class="form-control" />
+                <label asp-for="DepartmentEducacion" class="control-label"></label>
+                <input asp-for="DepartmentEducacion" class="form-control" />
+                <label asp-for="DepartmentEspecialidad" class="control-label"></label>
+                <input asp-for="DepartmentEspecialidad" class="form-control" />
+                <label asp-for="DepartmentIdioma" class="control-label"></label>
+                <input asp-for="DepartmentIdioma" class="form-control" />
+                <label asp-for="DepartmentSalario" class="control-label"></label>
+                <input asp-for="DepartmentSalario" class="form-control" />
+                <label asp-for="DepartmentRecursos" class="control-label"></label>
+                <input asp-for="DepartmentRecursos" class="form-control" />
+                <label asp-for="DepartmentPuesto" class="control-label"></label>
+                <input asp-for="DepartmentPuesto" class="form-control" />
+                <span asp-validation-for="DepartmentPuesto" class="text-danger"></span>
+                <span asp-validation-for="DepartmentRecursos" class="text-danger"></span>
+                <span asp-validation-for="DepartmentSalario" class="text-danger"></span>
+                <span asp-validation-for="DepartmentIdioma" class="text-danger"></span>
+                <span asp-validation-for="DepartmentEspecialidad" class="text-danger"></span>
+                <span asp-validation-for="DepartmentEducacion" class="text-danger"></span>
+                <span asp-validation-for="DepartmentEdad" class="text-danger"></span>
+                <span asp-validation-for="DepartmentTelefono" class="text-danger"></span>
+                <span asp-validation-for="DepartmentSexo" class="text-danger"></span>
                 <span asp-validation-for="DepartmentDetalle" class="text-danger"></span>
                 <span asp-validation-for="DepartmentNumero" class="text-danger"></span>
                 <span asp-validation-for="DepartmentName" class="text-danger"></span>

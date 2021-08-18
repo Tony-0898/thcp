@@ -1,13 +1,13 @@
 ﻿@model thcp.Models.Department
 
 @{
-    ViewData["Title"] = "Detalles";
+    ViewData["Title"] = "Detalles Aspirante";
 }
 
-<h1>Detalles</h1>
+<h1 class="nav-link text-success" ><i class="fas fa-file-alt"></i>Detalles Aspirante</h1>
 
 <div>
-    <h4>Departamento</h4>
+    <h4>Detalles Aspirante</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -27,6 +27,60 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.DepartmentDetalle)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DepartmentSexo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DepartmentSexo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DepartmentTelefono)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DepartmentTelefono)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DepartmentEdad)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DepartmentEdad)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DepartmentEducacion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DepartmentEducacion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DepartmentEspecialidad)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DepartmentEspecialidad)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DepartmentIdioma)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DepartmentIdioma)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DepartmentSalario)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DepartmentSalario)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DepartmentRecursos)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DepartmentRecursos)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DepartmentPuesto)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DepartmentPuesto)
         </dd>
     </dl>
 </div>
