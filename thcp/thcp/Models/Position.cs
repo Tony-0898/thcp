@@ -79,7 +79,5 @@ namespace thcp.Models
         [MinLength(3, ErrorMessage = "Debe tener mas de cuatro caracteres.")]
         public string DescriptionContacto { get; set; }
 
-
-        public IEnumerable<Employee> Employees { get; set; }
     }
 }

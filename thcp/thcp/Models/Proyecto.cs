@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace thcp.Models
 {
@@ -10,13 +11,13 @@ namespace thcp.Models
     {
 
         [key]
-        public  int Id { get; set; }
-        public string DepartmentId { get; set; }
+        public int Id { get; set; }
+        public string ProyectoId { get; set; }
 
-        public string DepartmentName { get; set; }
+        public int DepartmetId { get; set; }
+        [ForeignKey("DepartmetId")]
+        public Department Department { get; set; }
 
-        public string DepartmentVacante { get; set; }
-
-        public string  DepartmentResidencia { get; set; }
+        public string ProyectoResidence { get; set; }
     }
 }

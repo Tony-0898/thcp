@@ -16,7 +16,7 @@ namespace thcp.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.6")
+                .HasAnnotation("ProductVersion", "5.0.8")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -326,9 +326,6 @@ namespace thcp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("DepartmentDepartmetId")
-                        .HasColumnType("int");
-
                     b.Property<int>("DepartmetId")
                         .HasColumnType("int");
 
@@ -386,8 +383,6 @@ namespace thcp.Migrations
 
                     b.HasKey("PositionId");
 
-                    b.HasIndex("DepartmentDepartmetId");
-
                     b.ToTable("Position");
                 });
 
@@ -398,19 +393,18 @@ namespace thcp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("DepartmentId")
+                    b.Property<int>("DepartmetId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProyectoId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DepartmentName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DepartmentResidencia")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DepartmentVacante")
+                    b.Property<string>("ProyectoResidence")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DepartmetId");
 
                     b.ToTable("Proyectos");
                 });
@@ -469,7 +463,7 @@ namespace thcp.Migrations
             modelBuilder.Entity("thcp.Models.Employee", b =>
                 {
                     b.HasOne("thcp.Models.Position", "Position")
-                        .WithMany("Employees")
+                        .WithMany()
                         .HasForeignKey("PositionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -477,21 +471,20 @@ namespace thcp.Migrations
                     b.Navigation("Position");
                 });
 
-            modelBuilder.Entity("thcp.Models.Position", b =>
+            modelBuilder.Entity("thcp.Models.Proyecto", b =>
                 {
-                    b.HasOne("thcp.Models.Department", null)
-                        .WithMany("Positions")
-                        .HasForeignKey("DepartmentDepartmetId");
+                    b.HasOne("thcp.Models.Department", "Department")
+                        .WithMany("proyectos")
+                        .HasForeignKey("DepartmetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Department");
                 });
 
             modelBuilder.Entity("thcp.Models.Department", b =>
                 {
-                    b.Navigation("Positions");
-                });
-
-            modelBuilder.Entity("thcp.Models.Position", b =>
-                {
-                    b.Navigation("Employees");
+                    b.Navigation("proyectos");
                 });
 #pragma warning restore 612, 618
         }
