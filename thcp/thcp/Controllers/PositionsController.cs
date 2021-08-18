@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using thcp.Common;
 using thcp.Data;
 using thcp.Models;
 
@@ -14,15 +15,53 @@ namespace thcp.Controllers
     {
         private readonly ApplicationDbContext _context;
 
+        private readonly int RecordsPerPage = 10;
+
+        private Pagination<Position> PaginationPositions;
+
         public PositionsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
         // GET: Positions
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string search, int page = 1)
         {
-            return View(await _context.Position.ToListAsync());
+            int totalRecords = 0;
+
+            if (search == null)
+            {
+                search = "";
+            }
+
+            //Obtener los resgistros totales
+            totalRecords = await _context.Position.CountAsync(
+                d => d.Description.Contains(search));
+
+            //Obtener datos
+            var departments = await _context.Position
+                .Where(d => d.Description.Contains(search))
+                .ToListAsync();
+
+            var departmentsResult = departments.OrderBy(o => o.Description)
+                .Skip((page - 1) * RecordsPerPage)
+                .Take(RecordsPerPage);
+            //Obtener el total de pginas
+            var totalPages = (int)Math.Ceiling((double)totalRecords / RecordsPerPage);
+
+            //Instanciar la clase de paginacion
+
+            PaginationPositions = new Pagination<Position>()
+            {
+                RecordsPerPage = this.RecordsPerPage,
+                TotalRecords = totalRecords,
+                TotalPage = totalPages,
+                CurrentPage = page,
+                Seacrh = search,
+                Result = departmentsResult
+            };
+
+            return View(PaginationPositions);
         }
 
         // GET: Positions/Details/5

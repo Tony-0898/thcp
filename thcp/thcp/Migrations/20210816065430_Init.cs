@@ -52,11 +52,29 @@ namespace thcp.Migrations
                 {
                     DepartmetId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DepartmentName = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: false)
+                    DepartmentName = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: false),
+                    DepartmentNumero = table.Column<int>(type: "int", nullable: false),
+                    DepartmentDetalle = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Departments", x => x.DepartmetId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Proyectos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DepartmentId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DepartmentName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DepartmentVacante = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DepartmentResidencia = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Proyectos", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -196,7 +214,7 @@ namespace thcp.Migrations
                     Indentity = table.Column<string>(type: "nvarchar(13)", maxLength: 13, nullable: true),
                     BirthDay = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Salary = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    PositionId = table.Column<int>(type: "int", nullable: true)
+                    PositionId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -206,7 +224,7 @@ namespace thcp.Migrations
                         column: x => x.PositionId,
                         principalTable: "Position",
                         principalColumn: "PositionId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -278,6 +296,9 @@ namespace thcp.Migrations
 
             migrationBuilder.DropTable(
                 name: "Employee");
+
+            migrationBuilder.DropTable(
+                name: "Proyectos");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

@@ -10,7 +10,6 @@
 </head>
 <body>
     <header>
-
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-laptop"></i>Reclutamiento</a>
@@ -27,19 +26,21 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-archive"></i>
                                 Menu de Procesos
                             </a>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Departmetns" asp-action="Index"><i class="fas fa-arrow-circle-right"></i> Departamentos de RRHH</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Positions" asp-action="Index"><i class="fas fa-arrow-circle-right"></i> Vacantes Disponibles</a>
+                                    </li>
 
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link text-success" asp-area="" asp-controller="Departmetns" asp-action="Index"><i class="fas fa-edit"></i> Aplicar a vacante </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-success" asp-area="" asp-controller="Positions" asp-action="Index"><i class="fas fa-file-alt"></i> Vacantes Disponibles</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link text-success" asp-area="" asp-controller="Proyectos" asp-action="Index"><i class="fas fa-person-booth"></i> Postulaciones Aprobadas</a>
-                                </li>
-                            </ul>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Proyectos" asp-action="Index"><i class="fas fa-arrow-circle-right"></i> Postulaciones a Vacantes</a>
+                                    </li>
+                                </ul>
+                            }
 
                         </li>
                     </ul>
@@ -49,16 +50,16 @@
         </nav>
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    @*<footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2021 - thcp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
-    </footer>
+    </footer>*@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
