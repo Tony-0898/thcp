@@ -23,9 +23,7 @@ namespace thcp.Controllers
             this.db = db;
         }
 
-        [Route("/Departments")]
-        [Route("/Departments/{search}")]
-        [Route("/Departments/{search}/{page}")]
+        
         public async Task<IActionResult> Index(string search, int page = 1)
         {
             int totalRecords = 0;

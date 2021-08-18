@@ -9,8 +9,8 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
+<table class="table-responsive table-bordered border-dark table-hover rounded-sm mb-4"">
+    <thead class="table-primary">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Result.SingleOrDefault().Description)
@@ -18,7 +18,7 @@
             <th></th>
         </tr>
     </thead>
-    <tbody bacground-color="cyan">
+    <tbody>
 
         @foreach (var item in Model.Result)
         {
@@ -27,9 +27,9 @@
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.PositionId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.PositionId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.PositionId">Delete</a>
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.PositionId"><i class="fas fa-pencil-ruler"></i> Editar</a>
+                    <a class="btn btn-success" asp-action="Details" asp-route-id="@item.PositionId"><i class="far fa-file-alt"></i> Detalles</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.PositionId"><i class="fas fa-remove"></i> Borrar</a>
                 </td>
             </tr>
         }
@@ -111,12 +111,6 @@
         {
             <li class="page-item p-2 ml-4">0-0</li>
         }
-        <li class="page-item col-1">
-            <input type="number" id="txtPage" class="form-control" />
-        </li>
-        <li class="page-item">
-            <a class="btn btn-outline-dark" onclick="page_search()" id="search-page">Ir</a>
-        </li>
     </ul>
 </nav>
 

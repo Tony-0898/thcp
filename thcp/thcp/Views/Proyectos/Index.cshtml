@@ -9,8 +9,8 @@
     <a asp-action="Create" class="btn btn-success">Nuevo</a>
 </p>
 
-<table class="table">
-    <thead>
+<table class="table-responsive table-bordered border-dark table-hover rounded-sm mb-4">
+    <thead class="table-primary">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Result.SingleOrDefault().DepartmentName)
@@ -107,12 +107,6 @@
         {
             <li class="page-item p-2 ml-4">0-0</li>
         }
-        <li class="page-item col-1">
-            <input type="number" id="txtPage" class="form-control" />
-        </li>
-        <li class="page-item">
-            <a class="btn btn-outline-dark" onclick="page_search()" id="search-page">Ir</a>
-        </li>
     </ul>
 </nav>
 
