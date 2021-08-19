@@ -89,8 +89,7 @@
 <div>
     <form asp-action="Delete">
         <input type="hidden" asp-for="DepartmetId" />
-        <input type="submit" class="btn btn-danger" value="Borrar" />
-        <a asp-action="Index" class="btn btn-success">Regresar</a>
+        <button type="submit" class="btn btn-danger"><i class="fas fa-trash-restore"></i>  Borrar</button>
+        <a asp-action="Index" class="btn btn-success"><i class="fas fa-backward"></i> Regresar</a>
     </form>
-    
 </div>

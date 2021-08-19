@@ -53,8 +53,17 @@ namespace thcp.Migrations
                     DepartmetId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DepartmentName = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: false),
-                    DepartmentNumero = table.Column<int>(type: "int", nullable: false),
-                    DepartmentDetalle = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: false)
+                    DepartmentNumero = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DepartmentDetalle = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: false),
+                    DepartmentSexo = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: false),
+                    DepartmentTelefono = table.Column<int>(type: "int", nullable: false),
+                    DepartmentEdad = table.Column<int>(type: "int", nullable: false),
+                    DepartmentEducacion = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: false),
+                    DepartmentEspecialidad = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: false),
+                    DepartmentIdioma = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    DepartmentSalario = table.Column<int>(type: "int", nullable: false),
+                    DepartmentRecursos = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: false),
+                    DepartmentPuesto = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -62,19 +71,27 @@ namespace thcp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Proyectos",
+                name: "Position",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    PositionId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DepartmentId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DepartmentName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DepartmentVacante = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DepartmentResidencia = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Description = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: true),
+                    DepartmetId = table.Column<int>(type: "int", nullable: false),
+                    DescriptionDepartamento = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
+                    DescriptionDetalles = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
+                    DescriptionTipoContrato = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
+                    DescriptionBeneficios = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
+                    DescriptionJornada = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
+                    DescriptionSalario = table.Column<int>(type: "int", nullable: false),
+                    DescriptionPerfil = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
+                    DescriptionExperiencia = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
+                    DescriptionZona = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
+                    DescriptionContacto = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Proyectos", x => x.Id);
+                    table.PrimaryKey("PK_Position", x => x.PositionId);
                 });
 
             migrationBuilder.CreateTable(
@@ -184,19 +201,20 @@ namespace thcp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Position",
+                name: "Proyectos",
                 columns: table => new
                 {
-                    PositionId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Description = table.Column<string>(type: "nvarchar(70)", maxLength: 70, nullable: true),
-                    DepartmetId = table.Column<int>(type: "int", nullable: false)
+                    ProyectoId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DepartmetId = table.Column<int>(type: "int", nullable: false),
+                    ProyectoResidence = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Position", x => x.PositionId);
+                    table.PrimaryKey("PK_Proyectos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Position_Departments_DepartmetId",
+                        name: "FK_Proyectos_Departments_DepartmetId",
                         column: x => x.DepartmetId,
                         principalTable: "Departments",
                         principalColumn: "DepartmetId",
@@ -272,8 +290,8 @@ namespace thcp.Migrations
                 column: "PositionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Position_DepartmetId",
-                table: "Position",
+                name: "IX_Proyectos_DepartmetId",
+                table: "Proyectos",
                 column: "DepartmetId");
         }
 

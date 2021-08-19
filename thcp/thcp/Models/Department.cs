@@ -76,6 +76,6 @@ namespace thcp.Models
         public string DepartmentPuesto { get; set; }
 
 
-        public IEnumerable<Position> Positions { get; set; }
+        public IEnumerable<Proyecto> proyectos { get; set; }
     }
 }

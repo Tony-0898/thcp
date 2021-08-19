@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -36,14 +37,15 @@ namespace thcp.Controllers
 
             //Obtener los resgistros totales
             totalRecords = await db.Proyectos.CountAsync(
-                d => d.DepartmentName.Contains(search));
+                d => d.ProyectoResidence.Contains(search));
 
             //Obtener datos
             var projects = await db.Proyectos
-                .Where(d => d.DepartmentName.Contains(search))
+                .Include(m => m.Department)
+                .Where(d => d.ProyectoResidence.Contains(search))
                 .ToListAsync();
 
-            var ProjectsResult = projects.OrderBy(o => o.DepartmentName)
+            var ProjectsResult = projects.OrderBy(o => o.ProyectoResidence)
                 .Skip((page - 1) * RecordsPerPage)
                 .Take(RecordsPerPage);
             //Obtener el total de pginas
@@ -65,6 +67,27 @@ namespace thcp.Controllers
 
         }
 
+        public IActionResult Create()
+        {
+            ViewData["DepartmetId"] = new SelectList(db.Departments, "DepartmetId", "DepartmentName");
+            return View();
+        }
 
+        // POST: Positions/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Proyecto proyecto)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Add(proyecto);
+                await db.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["DepartmetId"] = new SelectList(db.Departments, "DepartmetId", "DepartmentName", proyecto.DepartmetId);
+            return View(proyecto);
+        }
     }
 }

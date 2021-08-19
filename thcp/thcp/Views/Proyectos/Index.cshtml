@@ -13,7 +13,10 @@
     <thead class="table-primary">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Result.SingleOrDefault().DepartmentName)
+                @Html.DisplayNameFor(model => model.Result.SingleOrDefault().Department.DepartmentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Result.SingleOrDefault().ProyectoResidence)
             </th>
             <th></th>
         </tr>
@@ -22,11 +25,12 @@
     <tbody>
         @foreach (var item in Model.Result)
         {
-            <tr>
-                <td>@Html.DisplayNameFor(modelItem => item.DepartmentName) </td>
-                <td>
-                </td>
-            </tr>
+        <tr>
+            <td>@Html.DisplayFor(model => item.Department.DepartmentName)</td>
+            <td>@Html.DisplayFor(modelItem => item.ProyectoResidence) </td>
+            <td>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Borrar";
 }
 
-<h1 class="text-success" >Borrar</h1>
+<h1 class="text-success">Borrar</h1>
 
 <h3>Esta seguro que desea Elimar este registro?</h3>
 <div>
@@ -78,10 +78,12 @@
             @Html.DisplayFor(model => model.DescriptionContacto)
         </dd>
     </dl>
-    
-    <form asp-action="Delete" class="btn btn-danger">
-        <input type="hidden" asp-for="PositionId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+
+    <div>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="PositionId" />
+            <button type="submit" class="btn btn-danger"><i class="fas fa-trash-restore"></i>  Borrar</button>
+            <a asp-action="Index" class="btn btn-success"><i class="fas fa-backward"></i> Regresar</a>
+        </form>
+    </div>
 </div>

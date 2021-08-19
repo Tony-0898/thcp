@@ -10,15 +10,15 @@ using thcp.Data;
 namespace thcp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210817001731_new")]
-    partial class @new
+    [Migration("20210818162942_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.6")
+                .HasAnnotation("ProductVersion", "5.0.8")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -256,8 +256,9 @@ namespace thcp.Migrations
                         .HasMaxLength(70)
                         .HasColumnType("nvarchar(70)");
 
-                    b.Property<int>("DepartmentNumero")
-                        .HasColumnType("int");
+                    b.Property<string>("DepartmentNumero")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DepartmentPuesto")
                         .IsRequired()
@@ -334,9 +335,55 @@ namespace thcp.Migrations
                         .HasMaxLength(70)
                         .HasColumnType("nvarchar(70)");
 
-                    b.HasKey("PositionId");
+                    b.Property<string>("DescriptionBeneficios")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
 
-                    b.HasIndex("DepartmetId");
+                    b.Property<string>("DescriptionContacto")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<string>("DescriptionDepartamento")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<string>("DescriptionDetalles")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<string>("DescriptionExperiencia")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<string>("DescriptionJornada")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<string>("DescriptionPerfil")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<int>("DescriptionSalario")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DescriptionTipoContrato")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<string>("DescriptionZona")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.HasKey("PositionId");
 
                     b.ToTable("Position");
                 });
@@ -348,19 +395,18 @@ namespace thcp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("DepartmentId")
+                    b.Property<int>("DepartmetId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProyectoId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DepartmentName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DepartmentResidencia")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DepartmentVacante")
+                    b.Property<string>("ProyectoResidence")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DepartmetId");
 
                     b.ToTable("Proyectos");
                 });
@@ -419,7 +465,7 @@ namespace thcp.Migrations
             modelBuilder.Entity("thcp.Models.Employee", b =>
                 {
                     b.HasOne("thcp.Models.Position", "Position")
-                        .WithMany("Employees")
+                        .WithMany()
                         .HasForeignKey("PositionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -427,10 +473,10 @@ namespace thcp.Migrations
                     b.Navigation("Position");
                 });
 
-            modelBuilder.Entity("thcp.Models.Position", b =>
+            modelBuilder.Entity("thcp.Models.Proyecto", b =>
                 {
                     b.HasOne("thcp.Models.Department", "Department")
-                        .WithMany("Positions")
+                        .WithMany("proyectos")
                         .HasForeignKey("DepartmetId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -440,12 +486,7 @@ namespace thcp.Migrations
 
             modelBuilder.Entity("thcp.Models.Department", b =>
                 {
-                    b.Navigation("Positions");
-                });
-
-            modelBuilder.Entity("thcp.Models.Position", b =>
-                {
-                    b.Navigation("Employees");
+                    b.Navigation("proyectos");
                 });
 #pragma warning restore 612, 618
         }

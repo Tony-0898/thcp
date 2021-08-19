@@ -4,59 +4,90 @@
     ViewData["Title"] = "Create";
 }
 
-<h1 class="nav-link text-success" ><i class="fas fa-file-alt"></i>Crear Vacante</h1>
+<h1 class="nav-link text-success"><i class="fas fa-file-alt"></i>Crear Vacante</h1>
 
 <h4>Disponibels</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-10">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <label asp-for="DescriptionDepartamento" class="control-label"></label>
-                <input asp-for="DescriptionDepartamento" class="form-control" />
-                <label asp-for="DescriptionDetalles" class="control-label"></label>
-                <input asp-for="DescriptionDetalles" class="form-control" />
-                <label asp-for="DescriptionTipoContrato" class="control-label"></label>
-                <input asp-for="DescriptionTipoContrato" class="form-control" />
-                <label asp-for="DescriptionBeneficios" class="control-label"></label>
-                <input asp-for="DescriptionBeneficios" class="form-control" />
-                <label asp-for="DescriptionJornada" class="control-label"></label>
-                <input asp-for="DescriptionJornada" class="form-control" />
-                <label asp-for="DescriptionSalario" class="control-label"></label>
-                <input asp-for="DescriptionSalario" class="form-control" />
-                <label asp-for="DescriptionPerfil" class="control-label"></label>
-                <input asp-for="DescriptionPerfil" class="form-control" />
-                <label asp-for="DescriptionExperiencia" class="control-label"></label>
-                <input asp-for="DescriptionExperiencia" class="form-control" />
-                <label asp-for="DescriptionZona" class="control-label"></label>
-                <input asp-for="DescriptionZona" class="form-control" />
-                <label asp-for="DescriptionContacto" class="control-label"></label>
-                <input asp-for="DescriptionContacto" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-                <span asp-validation-for="DescriptionZona" class="text-danger"></span>
-                <span asp-validation-for="DescriptionExperiencia" class="text-danger"></span>
-                <span asp-validation-for="DescriptionPerfil" class="text-danger"></span>
-                <span asp-validation-for="DescriptionSalario" class="text-danger"></span>
-                <span asp-validation-for="DescriptionJornada" class="text-danger"></span>
-                <span asp-validation-for="DescriptionBeneficios" class="text-danger"></span>
-                <span asp-validation-for="DescriptionTipoContrato" class="text-danger"></span>
-                <span asp-validation-for="DescriptionDetalles" class="text-danger"></span>
-                <span asp-validation-for="DescriptionDepartamento" class="text-danger"></span>
-                <span asp-validation-for="Description" class="text-danger"></span>
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label asp-for="DescriptionDepartamento" class="control-label"></label>
+                    <input asp-for="DescriptionDepartamento" class="form-control" />
+                    <span asp-validation-for="DescriptionDepartamento" class="text-danger"></span>
+                </div>
             </div>
-
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <label asp-for="DescriptionDetalles" class="control-label"></label>
+                    <input asp-for="DescriptionDetalles" class="form-control" />
+                    <span asp-validation-for="DescriptionDetalles" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label asp-for="DescriptionTipoContrato" class="control-label"></label>
+                    <input asp-for="DescriptionTipoContrato" class="form-control" />
+                    <span asp-validation-for="DescriptionTipoContrato" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <label asp-for="DescriptionBeneficios" class="control-label"></label>
+                    <input asp-for="DescriptionBeneficios" class="form-control" />
+                    <span asp-validation-for="DescriptionBeneficios" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label asp-for="DescriptionJornada" class="control-label"></label>
+                    <input asp-for="DescriptionJornada" class="form-control" />
+                    <span asp-validation-for="DescriptionJornada" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <label asp-for="DescriptionSalario" class="control-label"></label>
+                    <input asp-for="DescriptionSalario" class="form-control" />
+                    <span asp-validation-for="DescriptionSalario" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label asp-for="DescriptionPerfil" class="control-label"></label>
+                    <input asp-for="DescriptionPerfil" class="form-control" />
+                    <span asp-validation-for="DescriptionPerfil" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <label asp-for="DescriptionExperiencia" class="control-label"></label>
+                    <input asp-for="DescriptionExperiencia" class="form-control" />
+                    <span asp-validation-for="DescriptionExperiencia" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label asp-for="DescriptionZona" class="control-label"></label>
+                    <input asp-for="DescriptionZona" class="form-control" />
+                    <span asp-validation-for="DescriptionZona" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <label asp-for="DescriptionContacto" class="control-label"></label>
+                    <input asp-for="DescriptionContacto" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+            <hr />
+            <div class="form-row">
+                <div class="form-group col-sm-12 m-2">
+                    <button type="submit" class="btn btn-primary float-right m-1"><i class="fas fa-save"> Guardar</i> </button>
+                    <a asp-action="Index" class="btn btn-warning float-right m-1"><i class="fas fa-backward"></i> Regresar</a>
+                </div>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index" class="btn btn-success" >Retornar</a>
 </div>
 
 @section Scripts {
