@@ -18,6 +18,8 @@ namespace thcp.Models
         [ForeignKey("DepartmetId")]
         public Department Department { get; set; }
 
+  
+        [Display(Name = "Detalles de Contratacion")]
         public string ProyectoResidence { get; set; }
     }
 }
